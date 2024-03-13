@@ -4,7 +4,7 @@ class TestExamples:
     def test_001_name_has_more_than_30_chars_message(self):
         """Test case for name with more than 30 characters."""
         form = Form()
-        actual_message = form.enter_name("aaaaaaaaaaaaaaaaaaaaaaaaa")
+        actual_message = form.enter_name("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         print("Actual Message:", actual_message)
         assert actual_message == 'name has more than 30 chars'
 
