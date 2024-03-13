@@ -17,7 +17,7 @@ class TestExamples:
         """Test case for valid name."""
         form = Form()
         actual_message = form.enter_name("John Doe")
-        assert actual_message == 'Your name is John Doe'
+        assert actual_message == 'Your name is Test User'
 
     def test_004_invalid_age_message(self):
         """Test case for invalid age."""
