@@ -5,6 +5,7 @@ class TestExamples:
         """Test case for name with more than 30 characters."""
         form = Form()
         actual_message = form.enter_name("aaaaaaaaaaaaaaaaaaaaaaaaa")
+        print("Actual Message:", actual_message)
         assert actual_message == 'name has more than 30 chars'
 
     def test_002_name_invalid_length_message(self):
