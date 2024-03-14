@@ -25,42 +25,49 @@ class TestForm:
         form = Form()
         actual_message = form.enter_age("12")
         assert actual_message == 'Invalid value for field age'
-        
+
 from src.login_module import Login
 
 class TestLogin:
     def test_001_validate_user_with_valid_email(self):
         login = Login()
         login.enter_user("example@mail.com")
+        login.enter_password("pass1234")
         assert login.validate_user() == 'Valid email format'
 
     def test_002_validate_user_with_empty_email(self):
         login = Login()
         login.enter_user("")
+        login.enter_password("pass1234")
         assert login.validate_user() == 'Email is mandatory'
 
     def test_003_validate_user_with_invalid_email(self):
         login = Login()
         login.enter_user("user@invalid")
+        login.enter_password("pass1234")
         assert login.validate_user() == 'Invalid email'
 
     def test_004_validate_user_with_wrong_email(self):
         login = Login()
         login.enter_user("user@example.com")
+        login.enter_password("pass1234")
         assert login.validate_user() == 'Valid email format'
 
     def test_005_validate_password_with_valid_password(self):
         login = Login()
+        login.enter_user("user@example.com")
         login.enter_password("pass1234")
         assert login.validate_password() == 'Valid password'
 
     def test_006_validate_password_with_empty_password(self):
         login = Login()
+        login.enter_user("user@example.com")
         login.enter_password("")
         assert login.validate_password() == 'password is mandatory'
 
     def test_007_validate_password_with_invalid_password(self):
         login = Login()
+        login.enter_user("user@example.com")
         login.enter_password("1234")
         assert login.validate_password() == 'Invalid password'
 
